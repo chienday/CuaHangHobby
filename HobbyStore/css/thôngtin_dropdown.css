@@ -1,0 +1,243 @@
+/* USER PROFILE DROPDOWN STYLES - SCALED FOR 1920PX */
+.user-profile-container {
+    position: relative;
+}
+
+.edit-icon {
+    cursor: pointer;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.edit-icon:hover {
+    transform: scale(1.1);
+    opacity: 0.8;
+}
+
+/* User Dropdown Menu - THU NHỎ CHO 1920PX */
+.user-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    width: 280px; /* Giảm từ 425px xuống 280px */
+    height: 310px; /* Giảm từ 467px xuống 310px */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    border: 2px solid #074882;
+    border-radius: 0px;
+    z-index: 1000;
+    display: none;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+    margin-top: 8px;
+    margin-left: -40px; /* Điều chỉnh vị trí */
+}
+
+/* Mũi tên trỏ lên - THU NHỎ */
+.user-dropdown::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 55px; /* Điều chỉnh vị trí mũi tên */
+    width: 16px; /* Giảm từ 20px xuống 16px */
+    height: 16px;
+    background: white;
+    border-left: 2px solid #074882;
+    border-top: 2px solid #074882;
+    transform: rotate(45deg);
+}
+
+/* User Dropdown Items - THU NHỎ */
+.user-dropdown-item {
+    width: 280px; /* Giảm từ 425px xuống 280px */
+    height: 54px; /* Giảm từ 81px xuống 54px */
+    background: #FFF3F3;
+    border-bottom: 1px solid #e0e0e0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.user-dropdown-item:last-child {
+    border-bottom: none;
+}
+
+.user-dropdown-item:hover {
+    background: linear-gradient(135deg, #074882 0%, #0a5a9e 100%);
+    transform: translateX(3px); /* Giảm hiệu ứng di chuyển */
+    box-shadow: -3px 0 10px rgba(7, 72, 130, 0.3);
+}
+
+.user-dropdown-item:hover .user-item-text {
+    color: white;
+}
+
+/* User Item Text - THU NHỎ FONT */
+.user-item-text {
+    color: black;
+    font-size: 28px; /* Giảm từ 48px xuống 28px */
+    font-family: "Inter", Helvetica;
+    font-weight: 400;
+    transition: color 0.3s ease;
+    white-space: nowrap;
+    text-align: center;
+}
+
+/* Logout item special styling */
+.logout-item {
+    background: #ffebee !important;
+}
+
+.logout-item:hover {
+    background: linear-gradient(135deg, #d32f2f 0%, #f44336 100%) !important;
+}
+
+/* Hiệu ứng loading */
+.user-dropdown-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(7, 72, 130, 0.1), transparent);
+    transition: left 0.5s ease;
+}
+
+.user-dropdown-item:hover::before {
+    left: 100%;
+}
+
+/* Responsive cho các màn hình nhỏ hơn */
+@media (max-width: 1366px) {
+    .user-dropdown {
+        width: 240px;
+        height: 270px;
+        margin-left: -35px;
+    }
+
+    .user-dropdown::before {
+        left: 50px;
+    }
+
+    .user-dropdown-item {
+        width: 240px;
+        height: 48px;
+    }
+
+    .user-item-text {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .user-dropdown {
+        width: 220px;
+        height: 250px;
+        left: -80px;
+        margin-left: 0;
+    }
+
+    .user-dropdown::before {
+        left: 90px;
+    }
+
+    .user-dropdown-item {
+        width: 220px;
+        height: 44px;
+    }
+
+    .user-item-text {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 768px) {
+    .user-dropdown {
+        width: 200px;
+        height: 230px;
+        left: -100px;
+    }
+
+    .user-dropdown::before {
+        left: 110px;
+    }
+
+    .user-dropdown-item {
+        width: 200px;
+        height: 40px;
+    }
+
+    .user-item-text {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .user-dropdown {
+        width: 180px;
+        height: 210px;
+        left: -120px;
+    }
+
+    .user-dropdown::before {
+        left: 130px;
+    }
+
+    .user-dropdown-item {
+        width: 180px;
+        height: 36px;
+    }
+
+    .user-item-text {
+        font-size: 18px;
+    }
+}
+
+/* Animation khi dropdown mở */
+@keyframes fadeInUserDropdown {
+    from {
+        opacity: 0;
+        transform: translateY(-15px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.user-dropdown {
+    animation: fadeInUserDropdown 0.3s ease-out;
+}
+
+/* Tối ưu cho màn hình 1920px */
+@media (min-width: 1920px) {
+    .user-dropdown {
+        width: 300px;
+        height: 330px;
+        margin-left: -45px;
+    }
+
+    .user-dropdown::before {
+        left: 60px;
+    }
+
+    .user-dropdown-item {
+        width: 300px;
+        height: 58px;
+    }
+
+    .user-item-text {
+        font-size: 30px;
+    }
+}
+
+/* Loại bỏ debug border */
+/* .user-dropdown {
+    border: 3px solid red !important;
+} */
